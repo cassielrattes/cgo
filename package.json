@@ -1,0 +1,29 @@
+{
+  "name": "poc_tcc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cassielrattes/POC_TCC.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cassielrattes/POC_TCC/issues"
+  },
+  "homepage": "https://github.com/cassielrattes/POC_TCC#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chart.js": "^2.9.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
