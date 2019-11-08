@@ -23,3 +23,8 @@
     * Informações da planta;
     * Cotação de Previsto X Real;
 }
+
+// BIZUS  
+
+Para pegar o sql e guardá-lo em um arquivo, use o mysqldump. Para mais informações:
+https://www.devmedia.com.br/backup-no-mysql-com-mysqldump-parte-1/7483
