@@ -15,13 +15,14 @@
 * Banco de Dados: {
     * Orçamento:   id, planta_id, custo_material e custo_operacao;
     * Componentes: id, orça_id, material, custo_material, custo_operacao, descricao e tipo;
-    * Planta:      id, cliente, responsavel, arquivo, metragem, observacoes;
+    * Planta:      id, cliente, responsavel, arquivo, metragem e observacoes;
 }
 
 * Funcionalidades: {
     * Calculos precisos;
     * Informações da planta;
     * Cotação de Previsto X Real;
+    * Visualização de graficos;
 }
 
 // BIZUS  
