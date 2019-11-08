@@ -19,7 +19,7 @@
 }
 
 * Funcionalidades: {
-    * Calculos precisos
-    * Informações da planta
-    * 
+    * Calculos precisos;
+    * Informações da planta;
+    * Cotação de Previsto X Real;
 }
