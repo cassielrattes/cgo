@@ -1,6 +1,9 @@
 
 // GRAFICO - ESCADA //
-
+<div class="row">
+    <canvas class="col-10" id="myChart"></canvas>
+    <canvas class="col-10" id="chartContainer"></canvas>
+    </div>
 var ctx = document.getElementById('myChart').getContext('2d');
 var chart = new Chart(ctx, {
     // The type of chart we want to create
