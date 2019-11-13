@@ -6,7 +6,7 @@ class BancoUtils {
             if(err)  throw err;
             cb(res);
         });
-    }
+    }git 
 
     static select(tb, cb){
         con.query(`SELECT * FROM ${tb}`, (err,res) => {
