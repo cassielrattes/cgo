@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
-const Chart = require('chart.js')
+
 
 module.exports = function () {
     const app = express();
@@ -13,11 +13,11 @@ module.exports = function () {
 
     // ROUTES //
 
-    app.get('/cadastro', function (req, res) {
+    app.get('/views/cadastro', function (req, res) {
         res.sendfile(path.resolve(__dirname + '/../public/cadastro.html'));
     });
 
-    app.get('/chart', function (req, res) {
+    app.get('/views/chart', function (req, res) {
         res.sendfile(path.resolve(__dirname + '/../public/chart.html'));
     });
 
@@ -26,15 +26,15 @@ module.exports = function () {
 
     });
 
-    app.get('/login', function (req, res) {
+    app.get('/views/login', function (req, res) {
         res.sendfile(path.resolve(__dirname + '/../public/login.html'));
     });
 
-    app.get('/orcamento', function (req, res) {
+    app.get('/views/orcamento', function (req, res) {
         res.sendfile(path.resolve(__dirname + '/../public/orcamento.html'));
     });
 
-    app.get('/suporte', function (req, res) {
+    app.get('/views/suporte', function (req, res) {
         res.sendfile(path.resolve(__dirname + '/../public/suporte.html'));
     });
 
