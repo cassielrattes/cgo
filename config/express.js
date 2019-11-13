@@ -2,33 +2,42 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
-
-// const cadastro = require('../routes/cadastro');
-// const chart = require('../routes/chart');
-// const index = require('../routes/index');
-// const login = require('../routes/login');
-// const orcamento = require('../routes/orcamento');
-// const suporte = require('../routes/suporte');
+const Chart = require('chart.js')
 
 module.exports = function () {
-
     const app = express();
 
     app.use(cors());
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
-    app.use(express.static(path.join(__dirname, 'public')));
 
-    app.get('/home', (req, res) => {
-        res.sendFile(__dirname + '/../public/login.html');
-    })
+    // ROUTES //
 
-    // app.use('/cadastro', cadastro)
-    // app.use('/chart', chart)
-    // app.use('/', index)
-    // app.use('/login', login)
-    // app.use('/orcamento', orcamento)
-    // app.use('/suporte', suporte)
+    app.get('/cadastro', function (req, res) {
+        res.sendfile(path.resolve(__dirname + '/../public/cadastro.html'));
+    });
+
+    app.get('/chart', function (req, res) {
+        res.sendfile(path.resolve(__dirname + '/../public/chart.html'));
+    });
+
+    app.get('/', function (req, res) {
+        res.sendFile(path.resolve(__dirname + '/../public/index.html'));
+
+    });
+
+    app.get('/login', function (req, res) {
+        res.sendfile(path.resolve(__dirname + '/../public/login.html'));
+    });
+
+    app.get('/orcamento', function (req, res) {
+        res.sendfile(path.resolve(__dirname + '/../public/orcamento.html'));
+    });
+
+    app.get('/suporte', function (req, res) {
+        res.sendfile(path.resolve(__dirname + '/../public/suporte.html'));
+    });
+
 
     return app;
 }
