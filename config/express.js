@@ -26,6 +26,11 @@ module.exports = function () {
 
     });
 
+
+    app.get('/views/sobre', function (req, res) {
+        res.sendfile(path.resolve(__dirname + '/../public/sobre.html'));
+    });
+
     app.get('/views/login', function (req, res) {
         res.sendfile(path.resolve(__dirname + '/../public/login.html'));
     });
@@ -37,6 +42,11 @@ module.exports = function () {
     app.get('/views/suporte', function (req, res) {
         res.sendfile(path.resolve(__dirname + '/../public/suporte.html'));
     });
+
+    app.get('/private/adminpanel', function (req, res) {
+        res.sendfile(path.resolve(__dirname + '/../public/adminPanel.html'));
+    });
+
 
 
     return app;

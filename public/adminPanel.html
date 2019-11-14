@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Painel Administrativo</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">CGO</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/views/orcamento">Orçamento </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/views/chart">Gráficos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/views/suporte">Suporte</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <table class="table container">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>CUSTO_MATERIAL</th>
+                <th>CUSTO_OPERACAO</th>
+                <th>DESCRICAO</th>
+                <th>TIPO</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row"></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="5">
+                    <a onclick="mostraModal(i)" class="waves-effect waves-light btn modal-trigger"
+                        style="background-color: green" href="#modal-criacao">
+                        CRIAR USUARIO
+                    </a>
+                </td>
+            </tr>
+        </tfoot>
+
+    </table>
+
+
+    <!-- Modal Structure -->
+    <div id="modal-criacao" class="modal">
+        <div class="modal-content">
+            <div class="row">
+                <form id="form-criacao" class="col s12">
+                    <div class="row container">
+                        <div class="input-field col s12">
+                            <input placeholder="Placeholder" id="ed-rm" name="ed-nome" type="text" class="validate">
+                            <label for="rm">RM</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input placeholder="Placeholder" id="ed-nome" name="ed-nome" type="text" class="validate">
+                            <label for="nome">Nome</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input placeholder="Placeholder" id="ed-nome" name="ed-nome" type="text" class="validate">
+                            <label for="curso">Curso</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a onclick="criarUsuario()" href="#!" style="color: white"
+                class="modal-close waves-effect waves-green btn-flat green">CRIAR USUARIO</a>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script>
+        let listaDeUsuarios = [];
+        listaDeUsuarios.push({
+            rm: 28984,
+            nome: 'Raquel Jesus',
+            curso: 'Informática'
+        });
+        listaDeUsuarios.push({
+            rm: 31055,
+            nome: 'Felipe Chapeu',
+            curso: 'Informática'
+        });
+        let tabela = document.getElementById('tabela');
+
+        function mostraModal(i) {
+
+            modalEdicao.open();
+            document.getElementById('ed-rm').value = listaDeUsuarios[i].rm;
+            document.getElementById('ed-nome').value = listaDeUsuarios[i].nome;
+            document.getElementById('ed-curso').value = listaDeUsuarios[i].curso;
+        }
+    </script>
+</body>
+
+</html>
