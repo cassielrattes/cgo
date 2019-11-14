@@ -2,6 +2,6 @@ const OrcDAO = require('../models/orcamentoDAO');
 
 const orcDAO = new OrcDAO();
 
-orcDAO.buscaPorUsuarioESenha({id: 'test'}, (err,res) => {
+orcDAO.buscarPorId({id: 4}, (res) => {
     console.log(res);
 })
