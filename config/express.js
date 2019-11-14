@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const rotasDeUsuario = require('../routes/usuarios')
 // const path = require('path');
 // const cookieParser = require('cookie-parser')
 // const mysql = require('mysql');
@@ -18,6 +19,9 @@ module.exports = function () {
 
     const indexRoute = require('../routes/index')
     app.use('/', indexRoute)
+
+
+    app.use('/orcamentos', rotasDeUsuario);
 
     return app;
 }
