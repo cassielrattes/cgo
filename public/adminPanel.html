@@ -17,7 +17,7 @@
     <!-- NAVBAR -->
 
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">CGO</a>
+        <a class="navbar-brand" href="/views">CGO</a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
             aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -33,7 +33,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/views/suporte">Suporte</a>
                 </li>
-
             </ul>
         </div>
     </nav>
@@ -76,8 +75,7 @@
                     </div>
                     <h3 class="text-center">Criação de Usuário</h3>
                     <div class="modal-body">
-
-                        <form role="form">
+                        <form role="form" id="form-cricao">
                             <div class="form-group">
                                 <label for="password">CUSTO_MATERIAL</label>
                                 <input type="text" class="form-control" id="password"
@@ -90,15 +88,17 @@
                             </div>
                             <div class="form-group">
                                 <label for="password">DESCRIÇÃO</label>
-                                <textarea rows="5" cols="50" maxlength="50" type="text" class="form-control"
+                                <textarea rows="5" cols="50" maxlength="255" type="text" class="form-control"
                                     id="password" placeholder="Insira o DESCRIÇÃO"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="password">TIPO</label>
                                 <input type="text" class="form-control" id="password" placeholder="Insira o TIPO">
                             </div>
-                            <button style="background-color: chartreuse" type="submit" class="btn btn-block"><span
-                                    class="glyphicon glyphicon-off"></span>Criar Usuário</button>
+                            <div class="modal-footer">
+                                <a onclick="criarUsuario()" href="#!" style="color: white"
+                                    class="modal-close waves-effect waves-green btn-flat green">CRIAR USUARIO</a>
+                            </div>
                         </form>
                     </div>
                 </div>
