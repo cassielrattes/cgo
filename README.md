@@ -22,7 +22,7 @@
     * Calculos precisos;
     * Informações da planta;
     * Cotação de Previsto X Real;
-    * Visualização de graficos;
+    * Visualização de graficos;git 
 }
 
 // BIZUS  
