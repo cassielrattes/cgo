@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser')
 const cors = require('cors');
 const path = require('path');
+const mysql = require('mysql');
 
 
 module.exports = function () {
