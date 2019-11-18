@@ -1,7 +1,13 @@
 const express = require('express');
 const BancoUtils = require('../helpers/bancoUtils');
-const Orcamento = require('../models/usuario');
+const Orcamento = require('../models/orcamento');
 const routers = express.Router();
+
+routers.get('/', (req, res) => {
+    BancoUtils.select(Orcamento.tabela, (orcamentos) => {
+        res.json(orcamentos);
+    })
+});
 
 routers.post('/', (req, res) => {
     const orcamento = new Orcamento(req.body);
@@ -12,13 +18,13 @@ routers.post('/', (req, res) => {
 
 routers.put('/', (req, res) => {
     const orcamentoNew = new Orcamento(req.body);
-    BancoUtils.put(orcamentoNew, Orcamento.tabela, { key: 'id_planta', value: orcamentoNew.id_planta }, (r) => {
+    BancoUtils.put(orcamentoNew, Orcamento.tabela, { key: 'id', value: orcamentoNew.id }, (r) => {
         res.json(r);
     });
 })
 
-routers.delete('/:id_planta', (req, res) => {
-    BancoUtils.delete(Orcamento.tabela, { key: 'id_planta', value: req.params.id_planta }, (r) => {
+routers.delete('/:id', (req, res) => {
+    BancoUtils.delete(Orcamento.tabela, { key: 'id', value: req.params.id }, (r) => {
         res.json(r);
     });
 })

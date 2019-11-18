@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const rotasDeUsuario = require('../routes/usuarios')
+const rotasDeOrcamento = require('../routes/orcamentos')
+const rotasDePlanta = require('../routes/plantas')
 // const path = require('path');
 // const cookieParser = require('cookie-parser')
 // const mysql = require('mysql');
@@ -21,7 +22,9 @@ module.exports = function () {
     app.use('/', indexRoute)
 
 
-    app.use('/orcamentos', rotasDeUsuario);
+    app.use('/orcamentos', rotasDeOrcamento);
+    app.use('/plantas', rotasDePlanta);
+
 
     return app;
 }

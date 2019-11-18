@@ -30,9 +30,16 @@ router.get('/suporte', function (req, res) {
     res.sendfile(path.resolve(__dirname + '/../public/suporte.html'));
 });
 
-router.get('/private/adminpanel', function (req, res) {
-    res.sendfile(path.resolve(__dirname + '/../public/adminPanel.html'));
+router.get('/admorcamento', function (req, res) {
+    res.sendfile(path.resolve(__dirname + '/../public/adminPanelOrcamento.html'));
+});
 
+router.get('/admplanta', function (req, res) {
+    res.sendfile(path.resolve(__dirname + '/../public/adminPanelPlanta.html'));
+});
+
+router.get('/admcomponentes', function (req, res) {
+    res.sendfile(path.resolve(__dirname + '/../public/adminPanelComponentes.html'));
 });
 
 module.exports = router
