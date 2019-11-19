@@ -8,12 +8,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <title>CGO</title>
+  <style>
+    nav ul li :hover {
+      font-size: 150%;
+    }
+  </style>
 </head>
 
-<body>
+<body class="">
 
 
-  <nav class="red darken-3">
+  <nav class="grey darken-4">
     <div class="nav-wrapper">
       <a href="/views" class="brand-logo center">CGO</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger "><i class="material-icons">menu</i></a>
@@ -24,30 +29,29 @@
           <li><a href="/views/orcamento">Orçamentos</a></li>
           <li><a href="/views/chart">Gráficos</a></li>
           <li><a href="/views/suporte">Suporte</a></li>
-
         </ul>
     </div>
   </nav>
 
-  <ul class="sidenav grey darken-1" id="mobile-demo">
+  <ul class="sidenav teal darken-4" id="mobile-demo">
     <li>
       <a href="/views">
-        <h5>Início</h5>
+        <h5 class="light grey-text text-lighten-3">Início</h5>
       </a>
     </li>
     <li>
       <a href="/views/orcamento">
-        <h5>Orçamentos</h5>
+        <h5 class="light grey-text text-lighten-3">Orçamentos</h5>
       </a>
     </li>
     <li>
       <a href="/views/chart">
-        <h5>Gráficos</h5>
+        <h5 class="light grey-text text-lighten-3">Gráficos</h5>
       </a>
     </li>
     <li>
       <a href="/views/suporte">
-        <h5>Suporte</h5>
+        <h5 class="light grey-text text-lighten-3">Suporte</h5>
       </a>
     </li>
   </ul>
@@ -63,14 +67,14 @@
       </li>
       <li>
         <img src="http://images.clipartpanda.com/pineapple-clip-art-pineapple-clip-art-1.png"> <!-- random image -->
-        <div class="caption left-align">
+        <div class="caption center-align">
           <h3>Left Aligned Caption</h3>
           <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
         </div>
       </li>
       <li>
         <img src="http://images.clipartpanda.com/pineapple-clip-art-pineapple-clip-art-1.png"> <!-- random image -->
-        <div class="caption right-align">
+        <div class="caption center-align">
           <h3>Right Aligned Caption</h3>
           <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
         </div>
@@ -88,23 +92,24 @@
 
 
 
-  <div class="container">
+  <div class="container center-align">
     <div class="row">
-      <div class="col s4">
+      <div class="col m4 s12">
         <h3 class='center-align'>Sobre</h3>
-        <img class="circle responsive-img"
-          src="http://images.clipartpanda.com/pineapple-clip-art-pineapple-clip-art-1.png">
+        <img class="circle responsive-img" src="https://icon-library.net/images/about-icon-png/about-icon-png-7.jpg">
         <h5 class="center-align">é brincadeira</h5>
         <p class="center-align">Ola</p>
       </div>
-      <div class="col s4">
+      <div class="col m4 s12">
         <h3 class='center-align'>Gráficos</h3>
         <img class="circle responsive-img"
-          src="http://images.clipartpanda.com/pineapple-clip-art-pineapple-clip-art-1.png">
-        <h5 class="center-align">é brincadeira</h5>
-        <p class="center-align">Ola</p>
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJVgHxXKH6U2FFNmPSgjI5KpCQgaR70-qd6Iy-n29S7w_9jPiB&s"
+          width="400px">
+        <h6 class="center-align">Utilizamos uma ferramenta chamada Chart para obtermos gráficos demonstrando a
+          comparação
+          entre os gastos previstos e os gastos reais.</h6>
       </div>
-      <div class="col s4">
+      <div class="col m4 s12">
         <h3 class='center-align'>Contatos</h3>
         <img class="circle responsive-img"
           src="http://images.clipartpanda.com/pineapple-clip-art-pineapple-clip-art-1.png">
@@ -114,17 +119,18 @@
     </div>
   </div>
 
-  <footer class="page-footer red darken-2">
+  <footer class="page-footer grey darken-4">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Footer Content</h5>
-          <p class="grey-text text-lighten-4">This is test content.</p>
+          <p class="grey-text text-lighten-4">
+            make your life easier</p>
         </div>
         <div class="col l4 offset-l2 s12">
           <h5 class="white-text">Links Section</h5>
           <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">About Us</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Desenvolvedores</a></li>
             <li><a class="grey-text text-lighten-3" href="#!">Careers</a></li>
             <li><a class="grey-text text-lighten-3" href="#!">Contact</a></li>
           </ul>
@@ -132,9 +138,8 @@
       </div>
     </div>
     <div class="footer-copyright">
-      <div class="container">
-        © 2016 Copyright Info Text Here
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      <div class="container right-align">
+        <i class="tiny material-icons">copyright</i> 2019 Copyright CGO. Ltda
       </div>
     </div>
   </footer>
