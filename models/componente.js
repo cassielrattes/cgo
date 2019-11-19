@@ -3,7 +3,6 @@ class Componente {
         return 'componentes';
     }
     constructor(objComponente) {
-        this.id = '';
         this.custo_material = '';
         this.custo_operacional = '';
         this.descricao = '';

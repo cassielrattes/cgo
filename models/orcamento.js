@@ -3,7 +3,6 @@ class Orcamento {
         return 'orcamentos';
     }
     constructor(objOrcamento) {
-        this.id = '';
         this.id_planta = '';
         this.id_orcador = '';
         this.custo_material = '';

@@ -3,7 +3,6 @@ class Planta {
         return 'plantas';
     }
     constructor(objPlanta) {
-        this.id = '';
         this.cliente = '';
         this.responsavel = '';
         this.metragem = '';

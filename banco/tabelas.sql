@@ -1,13 +1,15 @@
--- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
+CREATE DATABASE  IF NOT EXISTS `cgo` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `cgo`;
+-- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: cgo
 -- ------------------------------------------------------
--- Server version	8.0.15
+-- Server version	8.0.17
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
- SET NAMES utf8mb4 ;
+/*!50503 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,16 +23,18 @@
 
 DROP TABLE IF EXISTS `componentes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `componentes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_orcamento` varchar(255) NOT NULL,
   `custo_material` double DEFAULT NULL,
-  `custo_operacao` double DEFAULT NULL,
+  `custo_operacional` double DEFAULT NULL,
   `descricao` varchar(255) DEFAULT NULL,
   `tipo` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`,`id_orcamento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_orcamento` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_orcamento` (`id_orcamento`),
+  CONSTRAINT `fk_orcamento` FOREIGN KEY (`id_orcamento`) REFERENCES `orcamentos` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,59 +43,88 @@ CREATE TABLE `componentes` (
 
 LOCK TABLES `componentes` WRITE;
 /*!40000 ALTER TABLE `componentes` DISABLE KEYS */;
+INSERT INTO `componentes` VALUES (1,445111111111,4545,'blah','1',1);
 /*!40000 ALTER TABLE `componentes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `orcamento`
+-- Table structure for table `orcador`
 --
 
-DROP TABLE IF EXISTS `orcamento`;
+DROP TABLE IF EXISTS `orcador`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `orcamento` (
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `orcador` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_planta` int(11) NOT NULL,
-  `id_orcamento` int(11) NOT NULL,
-  `custo_materiais` double DEFAULT NULL,
-  `custo_operacional` double DEFAULT NULL,
+  `nome` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `orcamento`
+-- Dumping data for table `orcador`
 --
 
-LOCK TABLES `orcamento` WRITE;
-/*!40000 ALTER TABLE `orcamento` DISABLE KEYS */;
-/*!40000 ALTER TABLE `orcamento` ENABLE KEYS */;
+LOCK TABLES `orcador` WRITE;
+/*!40000 ALTER TABLE `orcador` DISABLE KEYS */;
+INSERT INTO `orcador` VALUES (1,'Bahiano');
+/*!40000 ALTER TABLE `orcador` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `planta`
+-- Table structure for table `orcamentos`
 --
 
-DROP TABLE IF EXISTS `planta`;
+DROP TABLE IF EXISTS `orcamentos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `planta` (
-  `id` varchar(255) DEFAULT NULL,
-  `id_cli` int(11) DEFAULT NULL,
-  `id_resp` int(11) DEFAULT NULL,
-  `arquivo` varchar(255) DEFAULT NULL,
-  `metragem` double(10,2) DEFAULT NULL,
-  `observacao` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `orcamentos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_planta` int(11) NOT NULL,
+  `id_orcador` int(11) NOT NULL,
+  `custo_material` double DEFAULT NULL,
+  `custo_operacional` double DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_planta` (`id_planta`),
+  CONSTRAINT `fk_planta` FOREIGN KEY (`id_planta`) REFERENCES `plantas` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `planta`
+-- Dumping data for table `orcamentos`
 --
 
-LOCK TABLES `planta` WRITE;
-/*!40000 ALTER TABLE `planta` DISABLE KEYS */;
-/*!40000 ALTER TABLE `planta` ENABLE KEYS */;
+LOCK TABLES `orcamentos` WRITE;
+/*!40000 ALTER TABLE `orcamentos` DISABLE KEYS */;
+INSERT INTO `orcamentos` VALUES (1,1,1,145,454),(2,1,11,111,111);
+/*!40000 ALTER TABLE `orcamentos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `plantas`
+--
+
+DROP TABLE IF EXISTS `plantas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `plantas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cliente` varchar(255) DEFAULT NULL,
+  `responsavel` varchar(255) DEFAULT NULL,
+  `metragem` double DEFAULT NULL,
+  `observacao` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `plantas`
+--
+
+LOCK TABLES `plantas` WRITE;
+/*!40000 ALTER TABLE `plantas` DISABLE KEYS */;
+INSERT INTO `plantas` VALUES (1,'Cassiel','Bruno',1.8,'blah'),(2,'Cleber','Cassiel',1.7,'1000.000');
+/*!40000 ALTER TABLE `plantas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -103,4 +136,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-08 20:22:33
+-- Dump completed on 2019-11-19 16:33:04
