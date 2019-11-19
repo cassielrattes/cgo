@@ -10,7 +10,7 @@
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Painel Administrativo</title>
+    <title>Painel Administrativo - Componentes</title>
 </head>
 
 <body>
@@ -19,10 +19,11 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>ID_PLANTA</th>
-                <th>ID_ORCADOR</th>
+                <th>ID_ORCAMENTO</th>
                 <th>CUSTO_MATERIAL</th>
                 <th>CUSTO_OPERACIONAL</th>
+                <th>DESCRIÇÃO</th>
+                <th>TIPO</th>
             </tr>
         </thead>
         <tbody id="tabela">
@@ -48,14 +49,9 @@
                     <input type="hidden" id="ed-id" name="id" />
                     <div class="row container">
                         <div class="input-field col s12">
-                            <input placeholder="Placeholder" id="ed-id_planta" name="id_planta" type="text"
+                            <input placeholder="Placeholder" id="ed-id_orcamento" name="id_orcamento" type="text"
                                 class="validate">
-                            <label for="id_planta">ID_PLANTA</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <input placeholder="Placeholder" id="ed-id_orcador" name="id_orcador" type="text"
-                                class="validate">
-                            <label for="id_orcador">ID_ORCADOR</label>
+                            <label for="id_orcamento">ID_ORCAMENTO</label>
                         </div>
                         <div class="input-field col s12">
                             <input placeholder="Placeholder" id="ed-custo_material" name="custo_material" type="text"
@@ -66,6 +62,15 @@
                             <input placeholder="Placeholder" id="ed-custo_operacional" name="custo_operacional"
                                 type="text" class="validate">
                             <label for="custo_operacional">CUSTO_OPERACIONAL</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input placeholder="Placeholder" id="ed-descricao" name="descricao" type="text"
+                                class="validate">
+                            <label for="descricao">DESCRIÇÃO</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input placeholder="Placeholder" id="ed-tipo" name="tipo" type="text" class="validate">
+                            <label for="tipo">TIPO</label>
                         </div>
                     </div>
                 </form>
@@ -85,24 +90,28 @@
                 <form id="form-criacao" class="col s12">
                     <div class="row container">
                         <div class="input-field col s12">
-                            <input placeholder="Placeholder" id="cr-id_planta" name="id_planta" type="text"
+                            <input placeholder="Placeholder" id="cr-id_orcamento" name="id_orcamento" type="text"
                                 class="validate">
-                            <label for="id_planta">ID_Planta</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <input placeholder="Placeholder" id="cr-id_orcador" name="id_orcador" type="text"
-                                class="validate">
-                            <label for="id_orcador">ID_Orcador</label>
+                            <label for="id_orcamento">ID_ORCAMENTO</label>
                         </div>
                         <div class="input-field col s12">
                             <input placeholder="Placeholder" id="cr-custo_material" name="custo_material" type="text"
                                 class="validate">
-                            <label for="custo_material">Custo_Material</label>
+                            <label for="custo_material">CUSTO_MATERIAL</label>
                         </div>
                         <div class="input-field col s12">
                             <input placeholder="Placeholder" id="cr-custo_operacional" name="custo_operacional"
                                 type="text" class="validate">
-                            <label for="custo_operacional">Custo_Operacional</label>
+                            <label for="custo_operacional">CUSTO_OPERACIONAL</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input placeholder="Placeholder" id="cr-descricao" name="descricao" type="text"
+                                class="validate">
+                            <label for="descricao">DESCRIÇÃO</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input placeholder="Placeholder" id="cr-tipo" name="tipo" type="text" class="validate">
+                            <label for="tipo">TIPO</label>
                         </div>
                     </div>
                 </form>
@@ -144,36 +153,38 @@
         });
     </script>
     <script>
-        let listaDeOrcamentos = [];
+        let listaDeComponentes = [];
         let tabela = document.getElementById('tabela');
 
         function mostraModal(i) {
             modalEdicao.open();
-            document.getElementById('ed-id').value = listaDeOrcamentos[i].id;
-            document.getElementById('ed-id_planta').value = listaDeOrcamentos[i].id_planta;
-            document.getElementById('ed-id_orcador').value = listaDeOrcamentos[i].id_orcador;
-            document.getElementById('ed-custo_material').value = listaDeOrcamentos[i].custo_material;
-            document.getElementById('ed-custo_operacional').value = listaDeOrcamentos[i].custo_operacional;
+            document.getElementById('ed-id').value = listaDeComponentes[i].id;
+            document.getElementById('ed-id_orcamento').value = listaDeComponentes[i].id_orcamento;
+            document.getElementById('ed-custo_material').value = listaDeComponentes[i].custo_material;
+            document.getElementById('ed-custo_operacional').value = listaDeComponentes[i].custo_operacional;
+            document.getElementById('ed-descricao').value = listaDeComponentes[i].descricao;
+            document.getElementById('ed-tipo').value = listaDeComponentes[i].tipo;
 
         }
 
         function mostraModalDelecao(i) {
             modalDelecao.open();
-            document.getElementById('dl-id').value = listaDeOrcamentos[i].id;
+            document.getElementById('dl-id').value = listaDeComponentes[i].id;
         }
 
         function atualiza() {
-            fetch('/orcamentos')
+            fetch('/componentes')
                 .then(res => res.json())
                 .then(dados => {
-                    listaDeOrcamentos = dados;
-                    tabela.innerHTML = listaDeOrcamentos.map((orcamento, i) => `
+                    listaDeComponentes = dados;
+                    tabela.innerHTML = listaDeComponentes.map((componente, i) => `
             <tr>
-                    <td>${orcamento.id}</td>
-                    <td>${orcamento.id_planta}</td>
-                    <td>${orcamento.id_orcador}</td>
-                    <td>${orcamento.custo_material}</td>
-                    <td>${orcamento.custo_operacional}</td>
+                    <td>${componente.id}</td>
+                    <td>${componente.id_orcamento}</td>
+                    <td>${componente.custo_material}</td>
+                    <td>${componente.custo_operacional}</td>
+                    <td>${componente.descricao}</td>
+                    <td>${componente.tipo}</td>
                     <td><i onclick="mostraModal(${i})" class="material-icons">edit</i></td>
                     <td><i onclick="mostraModalDelecao(${i})" class="material-icons">close</i></td>
             </tr>
@@ -185,7 +196,7 @@
         function criarUsuario() {
             const formulario = document.getElementById("form-criacao");
             const data = new URLSearchParams(new FormData(formulario));
-            fetch('/orcamentos', {
+            fetch('/componentes', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -197,7 +208,7 @@
         function editarUsuario() {
             const formulario = document.getElementById("form-edicao");
             const data = new URLSearchParams(new FormData(formulario));
-            fetch('/orcamentos', {
+            fetch('/componentes', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -208,7 +219,7 @@
 
         function deletarUsuario() {
             const id = document.getElementById('dl-id').value;
-            fetch('/orcamentos/' + id, {
+            fetch('/componentes/' + id, {
                 method: 'DELETE'
             })
         }

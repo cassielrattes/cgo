@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const rotasDeOrcamento = require('../routes/orcamentos')
 const rotasDePlanta = require('../routes/plantas')
+const rotasDeComponentes = require('../routes/componentes')
 // const path = require('path');
 // const cookieParser = require('cookie-parser')
 // const mysql = require('mysql');
@@ -24,7 +25,7 @@ module.exports = function () {
 
     app.use('/orcamentos', rotasDeOrcamento);
     app.use('/plantas', rotasDePlanta);
-
+    app.use('/componentes', rotasDeComponentes);
 
     return app;
 }

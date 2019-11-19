@@ -4,8 +4,8 @@ const Orcamento = require('../models/orcamento');
 const routers = express.Router();
 
 routers.get('/', (req, res) => {
-    BancoUtils.select(Orcamento.tabela, (orcamentos) => {
-        res.json(orcamentos);
+    BancoUtils.select(Orcamento.tabela, (r) => {
+        res.json(r);
     })
 });
 

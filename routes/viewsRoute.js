@@ -38,7 +38,7 @@ router.get('/admplanta', function (req, res) {
     res.sendfile(path.resolve(__dirname + '/../public/adminPanelPlanta.html'));
 });
 
-router.get('/admcomponentes', function (req, res) {
+router.get('/admcomponente', function (req, res) {
     res.sendfile(path.resolve(__dirname + '/../public/adminPanelComponentes.html'));
 });
 
