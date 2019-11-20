@@ -1,28 +1,26 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const jwt = require('jsonwebtoken');
 
 const rotasDeOrcamentos = require('../routes/orcamentos')
 const rotasDePlantas = require('../routes/plantas')
 const rotasDeComponentes = require('../routes/componentes')
 const rotasDeUsuarios = require('../routes/usuarios')
 
-// const path = require('path');
-// const cookieParser = require('cookie-parser')
-// const mysql = require('mysql');
-// const connection = require('../helpers/connection')
-// const BancoUtils = require('../helpers/bancoUtils')
+
+
+ const cookieParser = require('cookie-parser')
+ 
 
 module.exports = function () {
     const app = express();
 
-    // app.use(cookieParser())
-
+    
     app.use(cors());
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
-
+    app.use(cookieParser())
+    
     const indexRoute = require('../routes/index')
     app.use('/', indexRoute)
 

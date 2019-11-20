@@ -12,11 +12,11 @@ const routers = express.Router();
 routers.post('/auth', (req, res) => {
     const usuario = new Usuario(req.body);
     usuario.setarSenha(req.body.senha);
-    new UsuarioDAO().buscaPorUsuarioESenha(usuario, (resposta) => {
+    new UsuarioDAO().buscarPorUsuarioESenha(usuario, (resposta) => {
 
         if (resposta.length > 0) {
-            const token = jwt.sign({ rm: Utils.criptografa('' + resposta[0].rm), nome: resposta[0].nome, nivel: resposta[0].admin }, segredo, { expiresIn: '1h' });
-            res.cookie('token', token).redirect('/index');
+            const token = jwt.sign({ id: Utils.criptografa('' + resposta[0].id), nome: resposta[0].nome, tipo: resposta[0].tipo }, segredo, { expiresIn: '1h' });
+            res.cookie('token', token).redirect('/admplanta');
             //res.json(token);
         } else {
             res.status(301).redirect('/login');
