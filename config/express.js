@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const jwt = require('jsonwebtoken');
+
 const rotasDeOrcamentos = require('../routes/orcamentos')
 const rotasDePlantas = require('../routes/plantas')
 const rotasDeComponentes = require('../routes/componentes')
@@ -24,12 +26,11 @@ module.exports = function () {
     const indexRoute = require('../routes/index')
     app.use('/', indexRoute)
 
-
     app.use('/orcamentos', rotasDeOrcamentos);
     app.use('/plantas', rotasDePlantas);
     app.use('/componentes', rotasDeComponentes);
     app.use('/usuarios', rotasDeUsuarios);
-   
+
 
     return app;
 }

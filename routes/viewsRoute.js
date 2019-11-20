@@ -42,8 +42,4 @@ router.get('/admcomponente', function (req, res) {
     res.sendfile(path.resolve(__dirname + '/../public/adminPanelComponentes.html'));
 });
 
-router.get('/usuarios', function (req, res) {
-    res.sendfile(path.resolve(__dirname + '/../public/login.html'));
-});
-
 module.exports = router
