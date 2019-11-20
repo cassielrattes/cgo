@@ -27,14 +27,14 @@ DROP TABLE IF EXISTS `componentes`;
 CREATE TABLE `componentes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `custo_material` double DEFAULT NULL,
-  `custo_operacional` double DEFAULT NULL,
+  `custo_operacao` double DEFAULT NULL,
   `descricao` varchar(255) DEFAULT NULL,
   `tipo` varchar(255) DEFAULT NULL,
-  `id_orcamento` int(11) NOT NULL,
+  `id_orcamento` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_orcamento` (`id_orcamento`),
-  CONSTRAINT `fk_orcamento` FOREIGN KEY (`id_orcamento`) REFERENCES `orcamentos` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `id_orcamento` (`id_orcamento`),
+  CONSTRAINT `componentes_ibfk_1` FOREIGN KEY (`id_orcamento`) REFERENCES `orcamentos` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,32 +43,7 @@ CREATE TABLE `componentes` (
 
 LOCK TABLES `componentes` WRITE;
 /*!40000 ALTER TABLE `componentes` DISABLE KEYS */;
-INSERT INTO `componentes` VALUES (1,445111111111,4545,'blah','1',1);
 /*!40000 ALTER TABLE `componentes` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `orcador`
---
-
-DROP TABLE IF EXISTS `orcador`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `orcador` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `orcador`
---
-
-LOCK TABLES `orcador` WRITE;
-/*!40000 ALTER TABLE `orcador` DISABLE KEYS */;
-INSERT INTO `orcador` VALUES (1,'Bahiano');
-/*!40000 ALTER TABLE `orcador` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -80,14 +55,14 @@ DROP TABLE IF EXISTS `orcamentos`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `orcamentos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_planta` int(11) NOT NULL,
-  `id_orcador` int(11) NOT NULL,
+  `id_planta` int(11) DEFAULT NULL,
+  `id_orcador` int(11) DEFAULT NULL,
   `custo_material` double DEFAULT NULL,
   `custo_operacional` double DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_planta` (`id_planta`),
-  CONSTRAINT `fk_planta` FOREIGN KEY (`id_planta`) REFERENCES `plantas` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `fk_idplanta` (`id_planta`),
+  CONSTRAINT `fk_idplanta` FOREIGN KEY (`id_planta`) REFERENCES `plantas` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +71,7 @@ CREATE TABLE `orcamentos` (
 
 LOCK TABLES `orcamentos` WRITE;
 /*!40000 ALTER TABLE `orcamentos` DISABLE KEYS */;
-INSERT INTO `orcamentos` VALUES (1,1,1,145,454),(2,1,11,111,111);
+INSERT INTO `orcamentos` VALUES (14,1,1,1.5,25);
 /*!40000 ALTER TABLE `orcamentos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -114,7 +89,7 @@ CREATE TABLE `plantas` (
   `metragem` double DEFAULT NULL,
   `observacao` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,8 +98,35 @@ CREATE TABLE `plantas` (
 
 LOCK TABLES `plantas` WRITE;
 /*!40000 ALTER TABLE `plantas` DISABLE KEYS */;
-INSERT INTO `plantas` VALUES (1,'Cassiel','Bruno',1.8,'blah'),(2,'Cleber','Cassiel',1.7,'1000.000');
+INSERT INTO `plantas` VALUES (1,'Cassiel','José',1.5,'Terreno pedroso');
 /*!40000 ALTER TABLE `plantas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `usuarios`
+--
+
+DROP TABLE IF EXISTS `usuarios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(255) DEFAULT NULL,
+  `senha` varchar(255) DEFAULT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `tipo` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuarios`
+--
+
+LOCK TABLES `usuarios` WRITE;
+/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` VALUES (1,'cass','blah','Cassiel',1);
+/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -136,4 +138,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-19 16:33:04
+-- Dump completed on 2019-11-20 15:00:38

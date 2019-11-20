@@ -1,9 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const rotasDeOrcamento = require('../routes/orcamentos')
-const rotasDePlanta = require('../routes/plantas')
+const rotasDeOrcamentos = require('../routes/orcamentos')
+const rotasDePlantas = require('../routes/plantas')
 const rotasDeComponentes = require('../routes/componentes')
+const rotasDeUsuarios = require('../routes/usuarios')
+
 // const path = require('path');
 // const cookieParser = require('cookie-parser')
 // const mysql = require('mysql');
@@ -23,9 +25,11 @@ module.exports = function () {
     app.use('/', indexRoute)
 
 
-    app.use('/orcamentos', rotasDeOrcamento);
-    app.use('/plantas', rotasDePlanta);
+    app.use('/orcamentos', rotasDeOrcamentos);
+    app.use('/plantas', rotasDePlantas);
     app.use('/componentes', rotasDeComponentes);
+    app.use('/usuarios', rotasDeUsuarios);
+   
 
     return app;
 }
