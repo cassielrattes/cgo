@@ -16,7 +16,7 @@ routers.post('/auth', (req, res) => {
 
         if (resposta.length > 0) {
             const token = jwt.sign({ id: Utils.criptografa('' + resposta[0].id), nome: resposta[0].nome, tipo: resposta[0].tipo }, segredo, { expiresIn: '1h' });
-            res.cookie('token', token).redirect('/admplanta');
+            res.cookie('token', token).redirect('/viewpanel');
             //res.json(token);
         } else {
             res.status(301).redirect('/login');
