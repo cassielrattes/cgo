@@ -32,4 +32,4 @@ https://www.devmedia.com.br/backup-no-mysql-com-mysqldump-parte-1/7483
 
 //Imagens\\
 
-Elder TCC - https://i.ibb.co/VLn5269/Elder-TCC-page-0001.jpg
+Elder TCC - https://i.ibb.co/4WkqSm3/Elder-TCC-1.png
