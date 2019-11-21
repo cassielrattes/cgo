@@ -22,12 +22,12 @@ router.get('/login', function (req, res) {
     res.sendfile(path.resolve(__dirname + '/../public/login.html'));
 });
 
-router.get('/orcamento', function (req, res) {
-    res.sendfile(path.resolve(__dirname + '/../public/orcamento.html'));
-});
-
 router.get('/suporte', function (req, res) {
     res.sendfile(path.resolve(__dirname + '/../public/suporte.html'));
+});
+
+router.get('/viewpanel', function (req, res) {
+    res.sendfile(path.resolve(__dirname + '/../public/viewPanel.html'));
 });
 
 router.get('/admorcamento', function (req, res) {

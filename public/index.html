@@ -12,62 +12,64 @@
     nav ul li :hover {
       font-size: 150%;
     }
-    .slider img{
-    height: 100% !important;
-    width: 100% !important;
-    background-position: top;
-    background-size: 100% 100% !important;
-    background-repeat: no-repeat;
-}
 
+    .slider img {
+      height: 100% !important;
+      width: 100% !important;
+      background-position: top;
+      background-size: 100% 100% !important;
+      background-repeat: no-repeat;
+    }
   </style>
 </head>
 
 <body class="">
 
 
-  <nav class="grey darken-4">
+
+  <nav class="grey darken-4" id="nav">
     <div class="nav-wrapper">
-      <a href="/views" class="brand-logo center">CGO</a>
+      <a href="/" class="brand-logo center">CGO</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger "><i class="material-icons">menu</i></a>
       <ul class="left hide-on-med-and-down">
 
         <ul class="left hide-on-med-and-down">
-          <li><a href="/views">Início</a></li>
-          <li><a href="/views/orcamento">Orçamentos</a></li>
-          <li><a href="/views/chart">Gráficos</a></li>
-          <li><a href="/views/suporte">Suporte</a></li>
+          <li><a href="/">Início</a></li>
+          <li><a href="/chart">Gráficos</a></li>
+          <li><a href="/suporte">Suporte</a></li>
+          <li><a href="/login">Login</a></li>
         </ul>
     </div>
   </nav>
 
   <ul class="sidenav teal darken-4" id="mobile-demo">
     <li>
-      <a href="/views">
+      <a href="/">
         <h5 class="light grey-text text-lighten-3">Início</h5>
       </a>
     </li>
     <li>
-      <a href="/views/orcamento">
-        <h5 class="light grey-text text-lighten-3">Orçamentos</h5>
-      </a>
-    </li>
-    <li>
-      <a href="/views/chart">
+      <a href="/chart">
         <h5 class="light grey-text text-lighten-3">Gráficos</h5>
       </a>
     </li>
     <li>
-      <a href="/views/suporte">
+      <a href="/suporte">
         <h5 class="light grey-text text-lighten-3">Suporte</h5>
+      </a>
+    </li>
+    <li>
+      <a href="/login">
+        <h5 class="light grey-text text-lighten-3">Login</h5>
       </a>
     </li>
   </ul>
 
+
   <div class="slider">
-    <ul class="slides" >
+    <ul class="slides">
       <li>
-        <img src="https://i.ibb.co/KyyDx6B/IMG-1380.jpg" >  <!-- random image -->
+        <img src="https://i.ibb.co/KyyDx6B/IMG-1380.jpg"> <!-- random image -->
         <div class="caption center-align">
           <h3>This is our big Tagline!</h3>
           <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
