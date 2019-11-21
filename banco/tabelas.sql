@@ -47,6 +47,30 @@ LOCK TABLES `componentes` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `orcador`
+--
+
+DROP TABLE IF EXISTS `orcador`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `orcador` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orcador`
+--
+
+LOCK TABLES `orcador` WRITE;
+/*!40000 ALTER TABLE `orcador` DISABLE KEYS */;
+INSERT INTO `orcador` VALUES (1,'Bahiano');
+/*!40000 ALTER TABLE `orcador` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `orcamentos`
 --
 
@@ -98,7 +122,7 @@ CREATE TABLE `plantas` (
 
 LOCK TABLES `plantas` WRITE;
 /*!40000 ALTER TABLE `plantas` DISABLE KEYS */;
-INSERT INTO `plantas` VALUES (1,'Cassiel','José',1.5,'Terreno pedroso');
+INSERT INTO `plantas` VALUES (1,'Cassiel','Jos?',1.5,'Terreno pedroso');
 /*!40000 ALTER TABLE `plantas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,7 +149,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'cass','blah','Cassiel',1);
+INSERT INTO `usuarios` VALUES (1,'cass','6f1ed002ab5595859014ebf0951522d9','Cassiel',1);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -138,4 +162,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-20 15:00:38
+-- Dump completed on 2019-11-21 14:52:02
