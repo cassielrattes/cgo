@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <title>Suporte</title>
 </head>
 
@@ -21,7 +22,6 @@
 
         <ul class="left hide-on-med-and-down">
           <li><a href="/">Início</a></li>
-          <li><a href="/orcamento">Orçamentos</a></li>
           <li><a href="/chart">Gráficos</a></li>
           <li><a href="/suporte">Suporte</a></li>
           <li><a href="/login">Login</a></li>
@@ -54,17 +54,18 @@
 
 
 
-  <footer class="page-footer">
+  <footer class="page-footer grey darken-4">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Footer Content</h5>
-          <p class="grey-text text-lighten-4">This is test content.</p>
+          <p class="grey-text text-lighten-4">
+            make your life easier</p>
         </div>
         <div class="col l4 offset-l2 s12">
           <h5 class="white-text">Links Section</h5>
           <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">About Us</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Desenvolvedores</a></li>
             <li><a class="grey-text text-lighten-3" href="#!">Careers</a></li>
             <li><a class="grey-text text-lighten-3" href="#!">Contact</a></li>
           </ul>
@@ -72,14 +73,53 @@
       </div>
     </div>
     <div class="footer-copyright">
-      <div class="container">
-        © 2016 Copyright Info Text Here
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      <div class="container right-align">
+        <i class="tiny material-icons">copyright</i> 2019 Copyright CGO. Ltda
       </div>
     </div>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems, {});
+    });
+  </script>
+
+
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script type="text/javascript">
+    function sendEmail() {
+      Email.send({
+          Host: "smtp.gmail.com",
+          Username: "5ec7e7012d3080",
+          Password: "95e5e1c6c69e31",
+          To: 'cgocontato2965@gmail.com',
+          From: "cgocontato2965@gmail.com",
+          Subject: "<email subject>",
+          Body: "<email body>",
+        })
+        .then(function (message) {
+          alert("mail sent successfully")
+        });
+    }
+  </script>
+</head>
+
+<body>
+  <form method="post">
+    <input type="button" value="Send Email" onclick="sendEmail()" />
+  </form>
 </body>
 
 </html>
