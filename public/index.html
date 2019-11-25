@@ -54,8 +54,6 @@
     <a href="/" class="brand-logo center">CGO</a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger "><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="/">Início</a></li>
-      <li><a href="/suporte">Suporte</a></li>
       <li><a data-target="modal-login" class="modal-trigger" href="#modal-login">
           Login
         </a></li>
@@ -64,16 +62,6 @@
   </nav>
 
   <ul class="sidenav teal darken-4" id="mobile-demo">
-    <li>
-      <a href="/">
-        <h5 class="light grey-text text-lighten-3">Início</h5>
-      </a>
-    </li>
-    <li>
-      <a href="/suporte">
-        <h5 class="light grey-text text-lighten-3">Suporte</h5>
-      </a>
-    </li>
     <li>
       <a href="#modal-login">
         <h5 class="light grey-text text-lighten-3">Login</h5>
@@ -87,13 +75,14 @@
   <div id="modal-login" class="modal">
     <div class="modal-content">
       <form method="POST" action="/usuarios/auth" id="form-login">
+        <h1 class="center-align">Entrar</h1>
         <div class="container">
           <div>
-            <label data-error="wrong" data-success="right" for="defaultForm-email">Usuário</label>
+            <h6><i class="fa fa-user fa-2x" aria-hidden="true"></i> Usuário</h6>
             <input type="text" id="usuario" name="usuario" class="form-control validate">
           </div>
           <div>
-            <label data-error="wrong" data-success="right" for="defaultForm-pass">Senha</label>
+            <h6><i class="fa fa-lock fa-2x"></i> Senha</h6>
             <input type="password" id="senha" name="senha" class="form-control validate">
           </div>
           <button onclick="login()" class="btn">Login</button>
@@ -156,7 +145,7 @@
     </div>
   </div>
 
-
+<hr>
   <div>
     <h3 class="center-align grey-text">Redes Sociais</h3>
     <br>
@@ -207,7 +196,6 @@
       })
     }
 
-
     $(document).ready(function () {
       $(window).scroll(function () {
         if ($(window).scrollTop() > 500) {
@@ -218,6 +206,7 @@
       })
     });
   </script>
+
   <script>
     var colors = ['black', '#28a745', '#333333', '#c3e6cb', '#dc3545', '#6c757d'];
 

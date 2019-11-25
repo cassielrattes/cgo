@@ -6,11 +6,6 @@ router.get('/', function (req, res) {
     res.sendFile(path.resolve(__dirname + '/../public/index.html'));
 });
 
-
-router.get('/login', function (req, res) {
-    res.sendfile(path.resolve(__dirname + '/../public/login.html'));
-});
-
 router.get('/viewpanel', function (req, res) {
     res.sendfile(path.resolve(__dirname + '/../public/viewPanel.html'));
 });
