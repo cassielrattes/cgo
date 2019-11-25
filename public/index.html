@@ -56,7 +56,9 @@
     <ul class="right hide-on-med-and-down">
       <li><a href="/">Início</a></li>
       <li><a href="/suporte">Suporte</a></li>
-      <li><a href="/login">Login</a></li>
+      <li><a data-target="modal-login" class="modal-trigger" href="#modal-login">
+          Login
+        </a></li>
     </ul>
     </div>
   </nav>
@@ -73,11 +75,33 @@
       </a>
     </li>
     <li>
-      <a href="/login">
+      <a href="#modal-login">
         <h5 class="light grey-text text-lighten-3">Login</h5>
+      </a>
       </a>
     </li>
   </ul>
+
+
+  <!-- Modal Structure -->
+  <div id="modal-login" class="modal">
+    <div class="modal-content">
+      <form method="POST" action="/usuarios/auth" id="form-login">
+        <div class="container">
+          <div>
+            <label data-error="wrong" data-success="right" for="defaultForm-email">Usuário</label>
+            <input type="text" id="usuario" name="usuario" class="form-control validate">
+          </div>
+          <div>
+            <label data-error="wrong" data-success="right" for="defaultForm-pass">Senha</label>
+            <input type="password" id="senha" name="senha" class="form-control validate">
+          </div>
+          <button onclick="login()" class="btn">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
 
   <img style="width: 100%; height: 100%; opacity: 1; visibility: inherit; z-index: 20;"
     src="https://i.ibb.co/n6tKrZG/image-url-4.jpg" />
@@ -165,6 +189,24 @@
       var elems = document.querySelectorAll('.carousel');
       var instances = M.Carousel.init(elems, {});
     });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.modal');
+      var instances = M.Modal.init(elems, {});
+    });
+
+    function login() {
+      const formulario = document.getElementById("form-login");
+      const data = new URLSearchParams(new FormData(formulario));
+      fetch('/usuarios/auth', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: data
+      })
+    }
+
 
     $(document).ready(function () {
       $(window).scroll(function () {
