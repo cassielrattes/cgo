@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <title>CGO</title>
@@ -13,30 +15,49 @@
       font-size: 150%;
     }
 
-    .slider img {
-      background-color: black;
-      background-size: 50% !important;
-      background-repeat: no-repeat;
+    nav {
+      position: fixed;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 0px 20px;
+    }
+
+    nav li a:hover {
+      background: gray;
+      box-shadow: 0 0 25px #000;
+      border: 1px solid #444;
+      overflow: hidden;
+    }
+
+    a img {
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 0 15px #000;
+      margin-top: 30px;
+      border: 1px solid #444;
+      padding: 5px;
+      display: block;
+      color: #444;
+      font-weight: bold;
+    }
+
+
+    div i.zoom:hover {
+      transform: scale(1.4);
+      /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
     }
   </style>
 </head>
 
-<body class="">
+<body>
 
-
-
-  <nav class="grey darken-4" id="nav">
-    <div class="nav-wrapper">
-      <a href="/" class="brand-logo center">CGO</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger "><i class="material-icons">menu</i></a>
-      <ul class="left hide-on-med-and-down">
-
-        <ul class="left hide-on-med-and-down">
-          <li><a href="/">Início</a></li>
-          <li><a href="/chart">Gráficos</a></li>
-          <li><a href="/suporte">Suporte</a></li>
-          <li><a href="/login">Login</a></li>
-        </ul>
+  <nav class="nav-wrapper">
+    <a href="/" class="brand-logo center">CGO</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger "><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="/">Início</a></li>
+      <li><a href="/suporte">Suporte</a></li>
+      <li><a href="/login">Login</a></li>
+    </ul>
     </div>
   </nav>
 
@@ -44,11 +65,6 @@
     <li>
       <a href="/">
         <h5 class="light grey-text text-lighten-3">Início</h5>
-      </a>
-    </li>
-    <li>
-      <a href="/chart">
-        <h5 class="light grey-text text-lighten-3">Gráficos</h5>
       </a>
     </li>
     <li>
@@ -63,94 +79,77 @@
     </li>
   </ul>
 
+  <img style="width: 100%; height: 100%; opacity: 1; visibility: inherit; z-index: 20;"
+    src="https://i.ibb.co/n6tKrZG/image-url-4.jpg" />
 
-  <div class="slider">
-    <ul class="slides">
-      <li>
-        <img class="fullscreen" src="https://i.ibb.co/KyyDx6B/IMG-1380.jpg"> <!-- random image -->
-        <div class="caption center-align">
-          <h3>This is our big Tagline!</h3>
-          <h5 class="light grey-text text-lighten-3"><a href="/chart">TMJ</a></h5>
-        </div>
-      </li>
-      <li>
-        <img src="https://i.ibb.co/4Tk8rt1/IMG-1392.jpg"> <!-- random image -->
-        <div class="caption center-align">
-          <h3>Left Aligned Caption</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-        </div>
-      </li>
-      <li>
-        <img src="https://i.ibb.co/VJymTtr/IMG-1383.jpg"> <!-- random image -->
-        <div class="caption center-align">
-          <h3>Right Aligned Caption</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-        </div>
-      </li>
-      <li>
-        <img src="https://i.ibb.co/K0BWftZ/IMG-1390.jpg"> <!-- random image -->
-        <div class="caption center-align">
-          <h3>This is our big Tagline!</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-
-
-
-  <div class="container center-align">
-    <div class="row">
-      <div class="col m4 s12">
-        <h3 class='center-align'>Sobre</h3>
+  <div class="row container">
+    <div class="col m3 s6 zoom">
+      <h3 class="center-align">Ola</h3>
+      <a href="#">
         <img class="circle responsive-img" src="https://icon-library.net/images/about-icon-png/about-icon-png-7.jpg">
-        <h5 class="center-align">é brincadeira</h5>
-        <p class="center-align">Ola</p>
-      </div>
-      <div class="col m4 s12">
-        <h3 class='center-align'>Gráficos</h3>
-        <img class="circle responsive-img" src="https://i.ibb.co/LYq4nQn/Sem-t-tulo-1-page-0001.jpg" width="400px">
-        <h6 class="center-align">Utilizamos uma ferramenta chamada Chart para obtermos gráficos demonstrando a
-          comparação
-          entre os gastos previstos e os gastos reais.</h6>
-      </div>
-      <div class="col m4 s12">
-        <h3 class='center-align'>Contatos</h3>
-        <img class="circle responsive-img"
-          src="http://images.clipartpanda.com/pineapple-clip-art-pineapple-clip-art-1.png">
-        <h5 class="center-align">é brincadeira</h5>
-        <p class="center-align">Ola</p>
+      </a>
+      <h5 class="center-align">ola</h5>
+      <p class="center-align">Ola</p>
+    </div>
+    <div class="col m3 s6 zoom">
+      <h3 class="center-align">Ola</h3>
+      <a href="#">
+        <img class="circle responsive-img" src="https://icon-library.net/images/about-icon-png/about-icon-png-7.jpg">
+      </a>
+      <h5 class="center-align">ola</h5>
+      <p class="center-align">Ola</p>
+    </div>
+    <div class="col m3 s6 zoom">
+      <h3 class="center-align">Ola</h3>
+      <a href="#">
+        <img class="circle responsive-img" src="https://icon-library.net/images/about-icon-png/about-icon-png-7.jpg">
+      </a>
+      <h5 class="center-align">ola</h5>
+      <p class="center-align">Ola</p>
+    </div>
+    <div class="col m3 s6 zoom">
+      <h3 class="center-align">Ola</h3>
+      <a href="#">
+        <img class="circle responsive-img" src="https://icon-library.net/images/about-icon-png/about-icon-png-7.jpg">
+      </a>
+      <h5 class="center-align">ola</h5>
+      <p class="center-align">Ola</p>
+    </div>
+  </div>
+
+
+  <div style="background-color:rgba(2, 253, 211, 0.2);">
+
+    <div class="container">
+      <h4 class="center-align">Tabela Previsto X Real</h4>
+      <div class="row">
+        <div class="col s12">
+          <div class="col s12">
+            <canvas id="chLine" height="120"></canvas>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <footer class="page-footer grey darken-4">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Footer Content</h5>
-          <p class="grey-text text-lighten-4">
-            make your life easier</p>
-        </div>
-        <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Links Section</h5>
-          <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">Desenvolvedores</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Careers</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Contact</a></li>
-          </ul>
-        </div>
-      </div>
+
+  <div>
+    <h3 class="center-align grey-text">Redes Sociais</h3>
+    <br>
+    <div class="row container">
+      <div class="col m2 s2 l2 center"><i class="zoom fa fa-facebook-square fa-3x"></i></div>
+      <div class="col m2 s2 l2 center"><i class="zoom fa fa-instagram fa-3x"></i></div>
+      <div class="col m2 s2 l2 center"><i class="zoom fa fa-linkedin-square fa-3x"></i></div>
+      <div class="col m2 s2 l2 center"><i class="zoom fa fa-twitter-square fa-3x"></i></div>
+      <div class="col m2 s2 l2 center"><i class="zoom fa fa-youtube-square fa-3x"></i></div>
+      <div class="col m2 s2 l2 center"><i class="zoom fa fa-twitch fa-3x"></i></div>
     </div>
-    <div class="footer-copyright">
-      <div class="container right-align">
-        <i class="tiny material-icons">copyright</i> 2019 Copyright CGO. Ltda
-      </div>
-    </div>
-  </footer>
+    <br>
+  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var elems = document.querySelectorAll('.slider');
@@ -161,6 +160,65 @@
       var elems = document.querySelectorAll('.sidenav');
       var instances = M.Sidenav.init(elems, {});
     });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.carousel');
+      var instances = M.Carousel.init(elems, {});
+    });
+
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(window).scrollTop() > 500) {
+          $('nav').addClass('teal');
+        } else {
+          $('nav').removeClass('teal');
+        }
+      })
+    });
+  </script>
+  <script>
+    var colors = ['black', '#28a745', '#333333', '#c3e6cb', '#dc3545', '#6c757d'];
+
+    // Gráfico 1 \\
+
+    var chLine = document.getElementById("chLine");
+    var chartData = {
+      labels: ["Alvenaria", "Componentes", "Planta"],
+      datasets: [{
+          data: [589, 445, 483, 503, 689, 692, 634],
+          backgroundColor: 'transparent',
+          borderColor: colors[0],
+          borderWidth: 4,
+          pointBackgroundColor: colors[0]
+        },
+        {
+          data: [639, 465, 493, 478, 589, 632, 674],
+          backgroundColor: colors[3],
+          borderColor: colors[1],
+          borderWidth: 4,
+          pointBackgroundColor: colors[1]
+        }
+      ]
+    };
+
+    if (chLine) {
+      new Chart(chLine, {
+        type: 'bar',
+        data: chartData,
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false
+              }
+            }]
+          },
+          legend: {
+            display: false
+          }
+        }
+      });
+    }
   </script>
 </body>
 
