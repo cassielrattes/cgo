@@ -3,7 +3,13 @@ const router = express.Router()
 const path = require('path');
 
 router.get('/', function (req, res) {
-    res.sendFile(path.resolve(__dirname + '/../public/index.html'));
+    console.log(req.headers);
+    if(req.headers.referer === 'http://localhost/cgophp/login.php'){
+        res.sendFile(path.resolve(__dirname + '/../public/index.html'));
+    } else {
+        res.redirect('http://localhost/cgophp/login.php');
+    }
+    
 });
 
 router.get('/viewpanel', function (req, res) {
