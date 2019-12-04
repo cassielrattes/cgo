@@ -7,7 +7,11 @@ router.get('/', function (req, res) {
 });
 
 router.get('/viewpanel', function (req, res) {
-    res.sendfile(path.resolve(__dirname + '/../public/viewPanel.html'));
+    if (req.cookies.token) {
+        res.sendfile(path.resolve(__dirname + '/../public/viewPanel.html'));
+    } else {
+        res.redirect('/');
+    }
 });
 
 router.get('/admorcamento', function (req, res) {
