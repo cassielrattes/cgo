@@ -15,15 +15,27 @@ router.get('/viewpanel', function (req, res) {
 });
 
 router.get('/admorcamento', function (req, res) {
-    res.sendfile(path.resolve(__dirname + '/../public/adminPanelOrcamento.html'));
+    if (req.cookies.token) {
+        res.sendfile(path.resolve(__dirname + '/../public/adminPanelOrcamento.html'));
+    } else {
+        res.redirect('/');
+    }
 });
 
 router.get('/admplanta', function (req, res) {
-    res.sendfile(path.resolve(__dirname + '/../public/adminPanelPlanta.html'));
+    if (req.cookies.token) {
+        res.sendfile(path.resolve(__dirname + '/../public/adminPanelPlanta.html'));
+    } else {
+        res.redirect('/');
+    }
 });
 
 router.get('/admcomponente', function (req, res) {
-    res.sendfile(path.resolve(__dirname + '/../public/adminPanelComponentes.html'));
+    if (req.cookies.token) {
+        res.sendfile(path.resolve(__dirname + '/../public/adminPanelComponentes.html'));
+    } else {
+        res.redirect('/');
+    }
 });
 
 module.exports = router
