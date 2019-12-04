@@ -15,11 +15,17 @@ routers.post('/auth', (req, res) => {
     new UsuarioDAO().buscarPorUsuarioESenha(usuario, (resposta) => {
 
         if (resposta.length > 0) {
-            const token = jwt.sign({ id: Utils.criptografa('' + resposta[0].id), nome: resposta[0].nome, tipo: resposta[0].tipo }, segredo, { expiresIn: '1h' });
+            const token = jwt.sign({
+                id: Utils.criptografa('' + resposta[0].id),
+                nome: resposta[0].nome,
+                tipo: resposta[0].tipo
+            }, segredo, {
+                expiresIn: '1h'
+            });
             res.cookie('token', token).redirect('/viewpanel');
             //res.json(token);
         } else {
-            res.status(301).redirect('/login');
+            res.status(301).redirect('/');
         }
     });
 
@@ -43,13 +49,19 @@ routers.post('/', (req, res) => {
 
 routers.put('/', (req, res) => {
     const usuarioNovo = new Usuario(req.body);
-    BancoUtils.put(usuarioNovo, Usuario.tabela, { key: 'rm', value: usuarioNovo.rm }, (r) => {
+    BancoUtils.put(usuarioNovo, Usuario.tabela, {
+        key: 'rm',
+        value: usuarioNovo.rm
+    }, (r) => {
         res.json(r);
     });
 })
 
 routers.delete('/:rm', (req, res) => {
-    BancoUtils.delete(Usuario.tabela, { key: 'rm', value: req.params.rm }, (r) => {
+    BancoUtils.delete(Usuario.tabela, {
+        key: 'rm',
+        value: req.params.rm
+    }, (r) => {
         res.json(r);
     });
 })
